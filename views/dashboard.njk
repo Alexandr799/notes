@@ -1,0 +1,30 @@
+{% extends "_layout.njk" %}
+
+{% block style %}
+<style>
+  .uk-navbar-right :first-child {
+    margin-left: auto;
+  }
+</style>
+
+<link rel="stylesheet" href="https://unpkg.com/easymde/dist/easymde.min.css">
+<link rel="stylesheet" href="/bundle.css" />
+{% endblock %}
+
+{% block content %}
+  <nav class="uk-navbar-container" uk-navbar>
+    <div class="uk-navbar-right">
+      <div class="uk-navbar-item">
+        <img src="https://www.gravatar.com/avatar/{{ username }}?s=32&d=identicon&r=PG" class="uk-margin-right uk-border-circle" />
+        {{ username }}
+      </div>
+      <ul class="uk-navbar-nav">
+        <li><a href="/logout">Выход</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <div id="main"></div>
+
+  <script src="/bundle.js"></script>
+{% endblock %}

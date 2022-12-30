@@ -1,0 +1,13 @@
+{
+  "parser": "babel-eslint",
+  "extends": ["prettier", "eslint:recommended", "plugin:node/recommended"],
+  "env": {
+    "node": true,
+    "es6": true
+  },
+  "plugins": ["prettier"],
+  "rules": {
+    "no-process-exit": 0
+  },
+  "settings": {}
+}

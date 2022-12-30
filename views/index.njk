@@ -1,0 +1,55 @@
+{% extends "_layout.njk" %}
+
+{% block style %}
+<style>
+  .uk-divider-icon + h2 {
+    margin-top: 0;
+  }
+</style>
+{% endblock %}
+
+{% block content %}
+
+  {% if authError %}
+    <div class="uk-alert uk-alert-danger">
+      <p>{{ authError }}</p>
+    </div>
+  {% endif %}
+
+    {% if validMassage %}
+    <div class="uk-alert uk-alert-success">
+      <p>{{ validMassage }}</p>
+    </div>
+  {% endif %}
+
+  <h2>Войти</h2>
+  <form method="POST" action="/login" enctype="application/x-www-form-urlencoded">
+    <p><input type="text" name="username" class="uk-input"></p>
+    <p><input type="password" name="password" class="uk-input"></p>
+    <p><button class="uk-button uk-button-primary">Вход</button></p>
+  </form>
+
+
+  <hr class="uk-divider-icon" />
+
+  <h2>Зарегистрироваться</h2>
+  <form method="POST" action="/signup" enctype="application/x-www-form-urlencoded">
+    <p><input type="text" name="username" class="uk-input"></p>
+    <p><input type="password" name="password" class="uk-input"></p>
+    <p><button class="uk-button uk-button-primary">Создать аккаунт</button></p>
+  </form>
+
+  <hr class="uk-divider-icon" />
+  <h3>Войти через</h3>
+  <p uk-margin>
+    <a class="uk-button uk-button-secondary uk-button-large" href="/google/auth">
+      <i class="fab fa-google"></i>&nbsp;
+      Google
+    </a>
+    <a class="uk-button uk-button-secondary uk-button-large" href="/github/auth">
+      <i class="fab fa-github"></i>&nbsp;
+      Github
+    </a>
+  </p>
+
+{% endblock %}
