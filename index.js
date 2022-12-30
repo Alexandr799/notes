@@ -48,7 +48,7 @@ app.use("/google", googleAuthRouter);
 app.use("/notes", noteRouter);
 
 app.get('*', function(req, res){
-  res.render('404.html');
+  res.status(404).render('404.html');
 });
 
 const port = process.env.PORT || 9000;
