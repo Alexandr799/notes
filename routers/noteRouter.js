@@ -120,7 +120,7 @@ noteRouter.get("/pdf", auth(), authWarningInit(), async (req, res) => {
     await fs.rm(pdf);
   } catch (err) {
     console.error(err);
-    res.send(500).send("Ошибка на сервере!");
+    res.status(500).send("Ошибка на сервере!");
   }
 });
 
