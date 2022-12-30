@@ -11,7 +11,7 @@ const {
 const { auth, authWarningInit } = require("../methods/authMehods");
 const noteRouter = require("express").Router();
 const showdown = require("showdown");
-const convertPDF = require("../methods/convertPDF");
+const makepdf = require("../methods/makepdf");
 const fs = require("fs").promises;
 
 const converter = new showdown.Converter();
@@ -115,7 +115,7 @@ noteRouter.get("/pdf", auth(), authWarningInit(), async (req, res) => {
   try {
     let note = await findInDataBase(req.db, "notes", { id: req.query.id });
     note.html = converter.makeHtml(note.text);
-    const pdf = await convertPDF(note.html, note.id);
+    const pdf = await makepdf(note.html, note.id);
     res.download(pdf);
     await fs.rm(pdf);
   } catch (err) {

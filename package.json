@@ -19,13 +19,13 @@
     "dotenv": "^16.0.3",
     "express": "^4.17.1",
     "express-session": "^1.17.3",
-    "html-pdf-node": "^1.0.8",
     "mongodb": "^4.13.0",
     "nanoid": "^3.1.10",
     "nunjucks": "^3.2.2",
     "passport": "^0.6.0",
     "passport-github2": "^0.1.12",
     "passport-google-oauth2": "^0.2.0",
+    "puppeteer": "^19.4.1",
     "showdown": "^2.1.0"
   },
   "devDependencies": {
