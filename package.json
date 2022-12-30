@@ -6,9 +6,9 @@
   "keywords": [],
   "main": "index.js",
   "scripts": {
-    "start": "node index.js",
-    "build": "rimraf public/bundle.* && rollup --config",
-    "dev": "npx nodemon index.js"
+    "start": "cross-env node index.js",
+    "build": "cross-env rimraf public/bundle.* && rollup --config",
+    "dev": " cross-env npx nodemon index.js"
   },
   "engines": {
     "node": "=12.x || =14.x || =15.x"
