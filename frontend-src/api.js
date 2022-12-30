@@ -1,3 +1,5 @@
+import URI from './env'
+
 const req = (url, options = {}) => {
   const { body } = options;
   return fetch(url, {
@@ -21,7 +23,7 @@ const req = (url, options = {}) => {
 };
 
 export const getNotes = async ({ age, search, page } = {}) => {
-  const fetchReq = req("http://localhost:9000/notes", {
+  const fetchReq = req(`${URI}/notes`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json;charset=utf-8",
@@ -33,7 +35,7 @@ export const getNotes = async ({ age, search, page } = {}) => {
 };
 
 export const createNote = async (title, text) => {
-  const fetchReq = req("http://localhost:9000/notes/new", {
+  const fetchReq = req(`${URI}/notes/new`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json;charset=utf-8",
@@ -45,7 +47,7 @@ export const createNote = async (title, text) => {
 };
 
 export const getNote = async (id) => {
-  const fetchReq = req(`http://localhost:9000/notes?id=${id}`, {
+  const fetchReq = req(`${URI}/notes?id=${id}`, {
     method: "GET",
   });
   let res = await fetchReq;
@@ -53,7 +55,7 @@ export const getNote = async (id) => {
 };
 
 export const archiveNote = async (id) => {
-  const fetchReq = req(`http://localhost:9000/notes/archive`, {
+  const fetchReq = req(`${URI}/notes/archive`, {
     method: "PUT",
     headers: {
       "Content-Type": "application/json;charset=utf-8",
@@ -65,7 +67,7 @@ export const archiveNote = async (id) => {
 };
 
 export const unarchiveNote = async (id) => {
-  const fetchReq = req(`http://localhost:9000/notes/archive`, {
+  const fetchReq = req(`${URI}/notes/archive`, {
     method: "PUT",
     headers: {
       "Content-Type": "application/json;charset=utf-8",
@@ -77,7 +79,7 @@ export const unarchiveNote = async (id) => {
 };
 
 export const editNote = async (id, title, text) => {
-  const fetchReq = req(`http://localhost:9000/notes`, {
+  const fetchReq = req(`${URI}/notes`, {
     method: "PUT",
     headers: {
       "Content-Type": "application/json;charset=utf-8",
@@ -89,7 +91,7 @@ export const editNote = async (id, title, text) => {
 };
 
 export const deleteNote = async (id) => {
-  const fetchReq = req(`http://localhost:9000/notes?id=${id}`, {
+  const fetchReq = req(`${URI}/notes?id=${id}`, {
     method: "DELETE",
   });
   let res = await fetchReq;
@@ -97,7 +99,7 @@ export const deleteNote = async (id) => {
 };
 
 export const deleteAllArchived = async () => {
-  const fetchReq = req(`http://localhost:9000/notes?id=all`, {
+  const fetchReq = req(`${URI}/notes?id=all`, {
     method: "DELETE",
   });
   let res = await fetchReq;
@@ -105,5 +107,5 @@ export const deleteAllArchived = async () => {
 };
 
 export const notePdfUrl = (id) => {
-  return `http://localhost:9000/notes/pdf?id=${id}`;
+  return `${URI}/notes/pdf?id=${id}`;
 };
