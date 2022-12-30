@@ -47,6 +47,10 @@ app.use("/github", githubAuthRouter);
 app.use("/google", googleAuthRouter);
 app.use("/notes", noteRouter);
 
+app.get('*', function(req, res){
+  res.render('404.html');
+});
+
 const port = process.env.PORT || 9000;
 
 client
